@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const words=[
+            {
+                wordForTranslate:'hello',
+                translatedWords:'привет'
+            },
+            {
+                wordForTranslate:'bye',
+                translatedWords:'пока'
+            },
+            {
+                wordForTranslate:'world',
+                translatedWords:'мир'
+            },
+            {
+                wordForTranslate:'cat',
+                translatedWords:'кот'
+            },
+            {
+                wordForTranslate:'dog',
+                translatedWords:'собака'
+            }
+        ]
+        /*const vocalibry={
+            words:{
+                word1:{
+                    wordForTranslate1:'hello',
+                    translatedWords1:'привет'
+                },
+                word2:{
+                     wordForTranslate2:'bye',
+                    translatedWords2:'пока'
+                },
+                word3:{
+                     wordForTranslate3:'world',
+                    translatedWords3:'мир'
+                }
+            },
+            wordCount:3
+        }*/
+
+    const notoficationMessages={
+      start:{hello:'hello, are you ready?!'},
+       result:{ isNotOk:'you need to try again',
+        isOk:'cool! you did it!'}
+    }
+
+  let correctAnswerCount=0
+
+  let minCorrectPercent=50
+//my coding
+ /* if (userAnswer1===translatedWords1&&userAnswer2===translatedWords2){
+alert(resultIsOk)
+ }
+ else if(userAnswer1===translatedWords1&&userAnswer3===translatedWords3){
+    alert(resultIsOk)
+ }else if(userAnswer2===translatedWords2&&userAnswer3===translatedWords3){
+    alert(resultIsOk)
+ }else{
+    alert(resultIsNotOk) 
+ } */
+ //dimych's coding
+
+ alert(notoficationMessages.start.hello)
+        for(let i=0; i<words.length; i++){
+
+                let userAnswer=prompt(words[i].wordForTranslate)
+                alert(userAnswer===words[i].translatedWords)
+                if(userAnswer===words[i].translatedWords){
+                    correctAnswerCount=correctAnswerCount+1
+
+            }
+
+        }
+  /*let userAnswer=prompt(words[0].wordForTranslate1)
+ alert(userAnswer===words[0].translatedWords1)
+ if(userAnswer===words[0].translatedWords1){
+    correctAnswercount=correctAnswercount+1
+ }
+ let userAnswer=prompt(words[1].wordForTranslate2)
+ alert(userAnswer===words[1].translatedWords2)
+ if(userAnswer===words[1].translatedWords2){
+    correctAnswercount=correctAnswercount+1
+ }
+ let userAnswer=prompt(words[2].wordForTranslate3)
+ alert(userAnswer===words[2].translatedWords3)
+ if(userAnswer===words[2].translatedWords3){
+    correctAnswercount=correctAnswercount+1
+ }*/
+ let userCorrectAnswerPercent=correctAnswerCount/words.length*100
+ if(userCorrectAnswerPercent>minCorrectPercent){
+    alert(notoficationMessages.result.isOk)
+ }else{
+    alert(notoficationMessages.result.isNotOk)
+ }
+  /*let balance = 100
+  document.write('START','<br>')
+
+  let productPrice1String=window.prompt('how much does product cost?')
+  let productPrice2String=window.prompt('how much does product cost?')
+  let productPrice3String=window.prompt('how much does product cost?')
+  let productPrice1=Number(productPrice1String)
+  let productPrice2=Number(productPrice2String)
+  let productPrice3=Number(productPrice3String)
+if (isNaN(productPrice1)||isNaN(productPrice2)||isNaN(productPrice3)) {
+    document.write("вводи числа")}else{
+    let sum= productPrice1 + productPrice2 + productPrice3
+    let result = balance - sum
+    if (sum<=result) {
+        document.write(`${result}`, " позволь себе всё что хочешь")}
+    else {
+                    document.write(`${result}`," начни копить" )
+
+    }
+
+}
+*/
+
+
+ /* if ((productPrice1+productPrice2+productPrice3)<= balance){
+      let result=balance-(productPrice1+productPrice2+productPrice3)
+      alert(result)
+  }*/
+/*  document.write('<br>','END')*/
+
+
+    </script>
+
+    
+</body>
+</html>
