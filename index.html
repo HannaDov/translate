@@ -8,55 +8,74 @@
 </head>
 <body>
     <script>
-        const words=[
-            {
-                wordForTranslate:'hello',
-                translatedWords:'привет'
-            },
-            {
-                wordForTranslate:'bye',
-                translatedWords:'пока'
-            },
-            {
-                wordForTranslate:'world',
-                translatedWords:'мир'
-            },
-            {
-                wordForTranslate:'cat',
-                translatedWords:'кот'
-            },
-            {
-                wordForTranslate:'dog',
-                translatedWords:'собака'
-            }
-        ]
-        /*const vocalibry={
-            words:{
-                word1:{
-                    wordForTranslate1:'hello',
-                    translatedWords1:'привет'
-                },
-                word2:{
-                     wordForTranslate2:'bye',
-                    translatedWords2:'пока'
-                },
-                word3:{
-                     wordForTranslate3:'world',
-                    translatedWords3:'мир'
+
+        function showAlertMessage(_notificationMessages){
+            return alert(notificationMessages.start.hello)
+        }
+
+        function getPercentAge(_result,_words) {
+            return _result.correctAnswerCount / _words.length * 100
+        }
+        function startTraining (_words,_result){
+            for(let i=0; i<_words.length; i++){
+
+                let userAnswer=prompt(_words[i].wordForTranslate)
+                alert(userAnswer===_words[i].translatedWords)
+                if(userAnswer===_words[i].translatedWords){
+                    _result.correctAnswerCount=_result.correctAnswerCount+1
+
                 }
-            },
-            wordCount:3
-        }*/
 
-    const notoficationMessages={
-      start:{hello:'hello, are you ready?!'},
-       result:{ isNotOk:'you need to try again',
-        isOk:'cool! you did it!'}
+            }
+        }
+        function showResults (_result,_words,_setting,_notificationMessages){
+            const userCorrectAnswerPercent = getPercentAge(result,words)
+            if(userCorrectAnswerPercent>setting.minCorrectPercent){
+                alert(notificationMessages.result.finishSuccess)
+            }else{
+                alert(notificationMessages.result.finishUnSuccess)
+            }
+        }
+
+const words=[
+    {
+        wordForTranslate:'hello',
+        translatedWords:'привет'
+    },
+    {
+        wordForTranslate:'bye',
+        translatedWords:'пока'
+    },
+    {
+        wordForTranslate:'world',
+        translatedWords:'мир'
+    },
+    {
+        wordForTranslate:'cat',
+        translatedWords:'кот'
+    },
+    {
+        wordForTranslate:'dog',
+        translatedWords:'собака'
     }
+]
+    const notificationMessages={
+      start:{
+          hello:'hello, are you ready?!'
+      },
+      result :{
+           finishUnSuccess:'you need to try again',
+           finishSuccess:'cool! you did it!'}
+    }
+const result={
+                correctAnswerCount:0
+            }
+const setting={
+                minCorrectPercent:50
+            }
+ /* let correctAnswerCount=0
 
-  let correctAnswerCount=0
-
-  let minCorrectPercent=50
+  let minCorrectPercent=50*/
 //my coding
  /* if (userAnswer1===translatedWords1&&userAnswer2===translatedWords2){
 alert(resultIsOk)
@@ -70,17 +89,10 @@ alert(resultIsOk)
  } */
  //dimych's coding
 
- alert(notoficationMessages.start.hello)
-        for(let i=0; i<words.length; i++){
+ //alert(notificationMessages.start.hello)
+        showAlertMessage(notificationMessages)
 
-                let userAnswer=prompt(words[i].wordForTranslate)
-                alert(userAnswer===words[i].translatedWords)
-                if(userAnswer===words[i].translatedWords){
-                    correctAnswerCount=correctAnswerCount+1
-
-            }
-
-        }
+        startTraining(words,result)
   /*let userAnswer=prompt(words[0].wordForTranslate1)
  alert(userAnswer===words[0].translatedWords1)
  if(userAnswer===words[0].translatedWords1){
@@ -96,12 +108,11 @@ alert(resultIsOk)
  if(userAnswer===words[2].translatedWords3){
     correctAnswercount=correctAnswercount+1
  }*/
- let userCorrectAnswerPercent=correctAnswerCount/words.length*100
- if(userCorrectAnswerPercent>minCorrectPercent){
-    alert(notoficationMessages.result.isOk)
- }else{
-    alert(notoficationMessages.result.isNotOk)
- }
+
+/* let userCorrectAnswerPercent=result.correctAnswerCount/words.length*100*/
+
+        showResults(result,words,setting,notificationMessages)
+
   /*let balance = 100
   document.write('START','<br>')
 
